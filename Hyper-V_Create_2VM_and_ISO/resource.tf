@@ -4,7 +4,7 @@ resource "hyperv_network_switch" "dmz_network_switch" {
 
 resource "hyperv_vhd" "web_server_g1_vhd" {
   path = "D:\\web_server\\web_server_g1.vhdx" #Needs to be absolute path
-  size = 15737421824                          #10GB
+  size = 15737421824                          #15GB
 }
 
 resource "hyperv_machine_instance" "web_server_g1" {
@@ -12,7 +12,7 @@ resource "hyperv_machine_instance" "web_server_g1" {
   generation             = 1
   processor_count        = 2
   static_memory          = true
-  memory_startup_bytes   = 4294967296 #512MB
+  memory_startup_bytes   = 4294967296 #4Гб
   wait_for_state_timeout = 10
   wait_for_ips_timeout   = 10
 
@@ -40,7 +40,7 @@ resource "hyperv_machine_instance" "web_server_g1" {
   dvd_drives {
     controller_number   = 0
     controller_location = 1
-    path                = "D:\\ubuntu-24.04.1-live-server-amd64.iso"
+    path                = "D:\\ubuntu-24.04.1-live-server-amd64.iso"		#Добавляем iso файл
   }
 }
 
@@ -54,7 +54,7 @@ resource "hyperv_machine_instance" "web_server_g2" {
   generation             = 1
   processor_count        = 2
   static_memory          = true
-  memory_startup_bytes   = 4294967296 #512MB
+  memory_startup_bytes   = 4294967296 #4Гб
   wait_for_state_timeout = 10
   wait_for_ips_timeout   = 10
 
